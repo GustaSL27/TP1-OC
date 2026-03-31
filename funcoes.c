@@ -1,5 +1,6 @@
-#include <string.h>
-#include <stdlib.h>
+#include "string.h"
+#include "stdlib.h"
+#include "stdio.h"
 #include "funcoes.h"
 
 int funct7(char operacao[]){
@@ -66,4 +67,11 @@ int NumeroRegistrador(char termo[]) {
         return atoi(&termo[1]); //converte string pra inteiro
     }
     return 0; // x0 por padrão
+}
+
+void imprimir_binario(int valor, int bits) {
+    for (int i = bits - 1; i >= 0; i--){
+        int bit = (valor >> i) & 1;
+        printf("%d", bit);
+    }
 }
