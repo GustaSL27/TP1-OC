@@ -3,14 +3,15 @@ Recebe a operação em assembly:
 
 operação = primeiros digitos ate o espaço
 
-sequencia de if (7) para encontrar a operação correspondente
-if (operação == add){
-    printf("%c", funct7(add));
-    printf("%c", rs2(3termo));
-    printf("%c", rs1(2termo));
-    printf("%c", funct3(add));
-    printf("%c", rd(1termo));
-    printf("%c", opcode(add));
+sequencia de 7 if's para encontrar a operação correspondente
+
+se operação = add{
+    imprime em binario o funct7 de add
+    imprime em binario o rs2
+    imprime em binario o rs1
+    imprime em binario o funct3 de add
+    imprime em binario o rd
+    imprime em binario o opcode de add
 }
 
 As funcoes rd, rs1, rs2 transformam o "número" do "termo"

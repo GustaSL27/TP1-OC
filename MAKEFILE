@@ -1,0 +1,13 @@
+#makefile criado pensando no computador que vai ser usado pelo professor os comandos usados no linux
+TARGET = montador
+
+all: $(TARGET)
+
+$(TARGET): main.c
+	gcc -Wall main.c -o $(TARGET) -lm
+
+run: $(TARGET)
+	./$(TARGET) entrada.asm
+
+clean:
+	rm -f $(TARGET) *.o
