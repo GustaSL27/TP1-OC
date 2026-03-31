@@ -75,3 +75,11 @@ void imprimir_binario(int valor, int bits) {
         printf("%d", bit);
     }
 }
+
+int imediato(char termo[]){
+    return atoi(termo);
+}
+
+int imediatoMemoria(char termo[]){
+    return atoi(termo);
+}

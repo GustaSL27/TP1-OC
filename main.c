@@ -38,6 +38,7 @@ int main(){
             printf("%c", funct3(lb));
             printf("%c", NumeroRegistrador(1termo));
             printf("%c", opcode(lb));
+    }
     if (strcmp(operacao, "sb") == 0){
         printf("%c", imm());
         printf("%c", NumeroRegistrador(3termo));
