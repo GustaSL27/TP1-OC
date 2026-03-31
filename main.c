@@ -2,28 +2,28 @@
 int main(){
 
     if (strcmp(operacao, "sub") == 0){
-        printf("%c", funct7(sub));
-        printf("%c", NumeroRegistrador(3termo));
-        printf("%c", NumeroRegistrador(2termo));
-        printf("%c", funct3(sub));
-        printf("%c", NumeroRegistrador(1termo));
-        printf("%c", opcode(sub));
+        imprimir_binario(funct7("sub"), 7);
+        imprimir_binario(NumeroRegistrador(termo3), 5);
+        imprimir_binario(NumeroRegistrador(termo2), 5);
+        imprimir_binario(funct3("sub"), 3);
+        imprimir_binario(NumeroRegistrador(termo1), 5);
+        imprimir_binario(opcode("sub"), 7);
     }
     if (strcmp(operacao, "and") == 0){
-        printf("%c", funct7(and));
-        printf("%c", NumeroRegistrador(3termo));
-        printf("%c", NumeroRegistrador(2termo));
-        printf("%c", funct3(and));
-        printf("%c", NumeroRegistrador(1termo));
-        printf("%c", opcode(and));
+        imprimir_binario(funct7("and"), 7);
+        imprimir_binario(NumeroRegistrador(termo3), 5);
+        imprimir_binario(NumeroRegistrador(termo2), 5);
+        imprimir_binario(funct3("and"), 3);
+        imprimir_binario(NumeroRegistrador(termo1), 5);
+        imprimir_binario(opcode("and"), 7);
     }
     if (strcmp(operacao, "srl") == 0){
-        printf("%c", funct7(srl));
-        printf("%c", NumeroRegistrador(3termo));
-        printf("%c", NumeroRegistrador(2termo));
-        printf("%c", funct3(srl));
-        printf("%c", NumeroRegistrador(1termo));
-        printf("%c", opcode(srl));
+        imprimir_binario(funct7("srl"), 7);
+        imprimir_binario(NumeroRegistrador(termo3), 5);
+        imprimir_binario(NumeroRegistrador(termo2), 5);
+        imprimir_binario(funct3("srl"), 3);
+        imprimir_binario(NumeroRegistrador(termo1), 5);
+        imprimir_binario(opcode("srl"), 7);
     }
     if (strcmp(operacao, "ori") == 0){
         printf("%c", imm());
