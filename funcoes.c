@@ -83,3 +83,11 @@ int imediato(char termo[]){
 int imediatoMemoria(char termo[]){
     return atoi(termo);
 }
+
+int RegMemoria(char termo[]) {
+    char *ptr = strchr(termo, 'x'); 
+    if (ptr != NULL) {
+        return atoi(ptr + 1);
+    }
+    return 0;
+}
