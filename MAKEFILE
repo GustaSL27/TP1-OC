@@ -1,13 +1,18 @@
-#makefile criado pensando no computador que vai ser usado pelo professor os comandos usados no linux
-TARGET = montador
+# Nome do executável
+TARGET = montador.exe
 
+# Regra padrão
 all: $(TARGET)
 
+# Compilação
 $(TARGET): main.c
 	gcc -Wall main.c -o $(TARGET) -lm
 
+# Regra para rodar (No Windows usamos .\ e o nome do arquivo)
 run: $(TARGET)
-	./$(TARGET) entrada.asm
+	.\$(TARGET) entrada.asm
 
+# Limpeza (Comandos do Windows: del /f /q)
 clean:
-	rm -f $(TARGET) *.o
+	if exist $(TARGET) del /f /q $(TARGET)
+	if exist *.o del /f /q *.o
