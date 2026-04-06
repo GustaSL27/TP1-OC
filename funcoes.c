@@ -18,25 +18,6 @@ int funct7(char operacao[]){
     return -1;
 }
 
-int opcode(char operacao[]) {
-    if (strcmp(operacao, "sub") == 0 || strcmp(operacao, "and") == 0 || strcmp(operacao, "srl") == 0){
-        return 0x33; // 0110011
-    }
-    if (strcmp(operacao, "ori") == 0){
-        return 0x13; // 0010011
-    }
-    if (strcmp(operacao, "lb") == 0){
-        return 0x03; // 0000011
-    }
-    if (strcmp(operacao, "sb") == 0){
-        return 0x23; // 0100011
-    }
-    if (strcmp(operacao, "beq") == 0){
-        return 0x63; // 1100011
-    }
-    return 0;
-}
-
 int funct3(char operacao[]) {
     if (strcmp(operacao, "sub") == 0){
         return 0x0;
@@ -62,6 +43,25 @@ int funct3(char operacao[]) {
     return 0;
 }
 
+int opcode(char operacao[]) {
+    if (strcmp(operacao, "sub") == 0 || strcmp(operacao, "and") == 0 || strcmp(operacao, "srl") == 0){
+        return 0x33; // 0110011
+    }
+    if (strcmp(operacao, "ori") == 0){
+        return 0x13; // 0010011
+    }
+    if (strcmp(operacao, "lb") == 0){
+        return 0x03; // 0000011
+    }
+    if (strcmp(operacao, "sb") == 0){
+        return 0x23; // 0100011
+    }
+    if (strcmp(operacao, "beq") == 0){
+        return 0x63; // 1100011
+    }
+    return 0;
+}
+
 int NumeroRegistrador(char termo[]) {
     if (termo[0] == 'x') {
         return atoi(&termo[1]); //converte string pra inteiro
@@ -69,18 +69,18 @@ int NumeroRegistrador(char termo[]) {
     return 0; // x0 por padrão
 }
 
-void imprimir_binario(int valor, int bits) {
+void ImprimirBinario(int valor, int bits) {
     for (int i = bits - 1; i >= 0; i--){
         int bit = (valor >> i) & 1;
         printf("%d", bit);
     }
 }
 
-int imediato(char termo[]){
+int Imediato(char termo[]){
     return atoi(termo);
 }
 
-int imediatoMemoria(char termo[]){
+int ImediatoMemoria(char termo[]){
     return atoi(termo);
 }
 

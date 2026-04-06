@@ -2,7 +2,7 @@
 
 int main(){
 
-    FILE *arq = fopen("entrada.asm", "r");
+    FILE *arq = fopen("C:\\Users\\Gu\\Documents\\OC\\entrada.asm", "r");
 
     if (arq == NULL) {
         printf("Arquivo 'entrada.asm' nao encontrado\n");
@@ -49,20 +49,20 @@ int main(){
             printf("\n");
         }
         if (strcmp(operacao, "lb") == 0){
-
-            int imm = imediatoMemoria(termo2);
+            int imm = ImediatoMemoria(termo2);
             int rs1 = RegMemoria(termo2);
+
             ImprimirBinario(imm, 12);
-            ImprimirBinario(termo1, 5);
-            ImprimirBinario(get_funct3("lb"), 3);
+            ImprimirBinario(rs1, 5);
+            ImprimirBinario(funct3("lb"), 3);
             ImprimirBinario(NumeroRegistrador(termo1), 5);
-            ImprimirBinario(get_opcode("lb"), 7);
+            ImprimirBinario(opcode("lb"), 7);
             printf("\n");
         }
         if (strcmp(operacao, "sb") == 0){
             int rs2 = NumeroRegistrador(termo1);
-            int imm = get_imediato_memoria(termo2);
-            int rs1 = get_reg_memoria(termo2);
+            int imm = ImediatoMemoria(termo2);
+            int rs1 = RegMemoria(termo2);
 
             ImprimirBinario((imm >> 5) & 0x7F, 7);
             ImprimirBinario(rs2, 5);
