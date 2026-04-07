@@ -3,29 +3,20 @@
 
 int main(){
 
-    int opcao;
+    int opcao_saida, opcao_entrada;
     char caminho_entrada[MAX_CAM];
     char caminho_saida[MAX_CAM];
-
-    printf("Digite o caminho do arquivo de entrada: ");
-    scanf("%255[^\n]", caminho_entrada);
-
-    FILE *arq = fopen(caminho_entrada, "r");
-    if (arq == NULL) {
-        printf("Erro: Arquivo '%s' nao encontrado.\n", caminho_entrada);
-        return 1;
-    }
-
-    printf("Escolha o destino da saida: \nTerminal (1)\nArquivo (2)\nOpcao: ");
-    scanf("%d", &opcao);
-
+    char operacao[10], termo1[10], termo2[10], termo3[10];
+    char linha[100];
+    FILE *arq_entrada = stdin; // a entrada padrão é o terminal
     FILE *arq_saida = stdout; // a saída padrão é o terminal
 
-    fflush(stdin); // "limpa" o teclado pra conseguir digitar o caminho da saída
+    printf("Escolha a SAIDA: \nTerminal (1)\nArquivo (2)\nOpcao: ");
+    scanf("%d", &opcao_saida);
 
-    if (opcao == 2) {
+    if (opcao_saida == 2) {
         printf("Digite o caminho do arquivo de saida: ");
-        scanf("%255[^\n]", caminho_saida);
+        scanf(" %255[^\n]", caminho_saida);
         arq_saida = fopen(caminho_saida, "w");
 
         if (arq_saida == NULL) {
@@ -34,15 +25,35 @@ int main(){
         }
     }
 
-    char operacao[10], termo1[10], termo2[10], termo3[10];
-    char linha[100];
+    printf("\nEscolha a ENTRADA: \nTerminal (1)\nArquivo (2)\nOpcao: ");
+    scanf("%d", &opcao_entrada);
 
-    while(fgets(linha, sizeof(linha), arq)){
+    if(opcao_entrada == 2){
+        printf("Digite o caminho do arquivo de entrada: ");
+        scanf(" %255[^\n]", caminho_entrada);
+        arq_entrada = fopen(caminho_entrada, "r");
 
-        int n = sscanf(linha, "%s %[^,], %[^,], %s", operacao, termo1, termo2, termo3);
+        if (arq_entrada == NULL){
+            printf("Erro: Arquivo '%s' nao encontrado.\n", caminho_entrada);
+            return 1;
+        }
+    }
+
+    else{
+        printf("Digite as instrucoes (ou 'sair' para finalizar):\n");
+    }
+
+    while(fgets(linha, sizeof(linha), arq_entrada)){
+
+        if (strncmp(linha, "sair", 4) == 0) break; // compara as primeiras 4 letras da linha e de "sair", se igual da break
+
+        int n = sscanf(linha, "%s %[^,], %[^,], %s", operacao, termo1, termo2, termo3); // n é a quantidade de itens armazenados
+        if (n < 1){
+            continue; // pula linha vazia
+        }
         
         if (n < 4) {
-            sscanf(linha, "%s %[^,], %s", operacao, termo1, termo2); // para lb e sb
+            sscanf(linha, "%s %[^,], %s", operacao, termo1, termo2); // lw, lb, sw, sb
         }
 
         if (strcmp(operacao, "sub") == 0){
