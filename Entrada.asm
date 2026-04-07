@@ -1,8 +1,5 @@
-lb   x1, 0(x2)
-sb   x3, 4(x2)
-sub  x4, x1, x3
-and  x5, x4, x1
-ori  x6, x5, 15
-srl  x7, x6, x5
-beq  x7, x0, -243
-sub  x4, x4, x1
+add x2, x0, x1
+sll x1, x2, x2
+or x2, x2, x1
+andi x2, x1, 16
+addi x3, x2, -243
