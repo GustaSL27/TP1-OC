@@ -69,10 +69,10 @@ int NumeroRegistrador(char termo[]) {
     return 0; // x0 por padrão
 }
 
-void ImprimirBinario(int valor, int bits) {
-    for (int i = bits - 1; i >= 0; i--){
+void ImprimirBinario(FILE *arq, int valor, int bits){
+    for (int i = bits - 1; i >= 0; i--) {
         int bit = (valor >> i) & 1;
-        printf("%d", bit);
+        fprintf(arq, "%d", bit); 
     }
 }
 
