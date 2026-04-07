@@ -5,40 +5,40 @@
 
 int funct7(char operacao[]){
     if (strcmp(operacao, "sub") == 0){
-        return 0x20;
+        return 0x20; // 0100000
     }
     
     if (strcmp(operacao, "and") == 0){
-        return 0x00;
+        return 0x00; // 0000000
     }
     
     if (strcmp(operacao, "srl") == 0){
-        return 0x00;
+        return 0x00; // 0000000
     }
     return -1;
 }
 
 int funct3(char operacao[]) {
     if (strcmp(operacao, "sub") == 0){
-        return 0x0;
+        return 0x0; // 000
     }
     if (strcmp(operacao, "and") == 0){
-        return 0x7;
+        return 0x7; // 111
     }
     if (strcmp(operacao, "srl") == 0){
-        return 0x5;
+        return 0x5; // 101
     } 
     if (strcmp(operacao, "ori") == 0){
-        return 0x6;
+        return 0x6; // 110
     } 
     if (strcmp(operacao, "lb") == 0){
-        return 0x0;
+        return 0x0; // 000
     }  
     if (strcmp(operacao, "sb") == 0){
-        return 0x0;
+        return 0x0; // 000
     }  
     if (strcmp(operacao, "beq") == 0){
-        return 0x0;
+        return 0x0; // 000
     } 
     return 0;
 }
@@ -66,7 +66,7 @@ int NumeroRegistrador(char termo[]) {
     if (termo[0] == 'x') {
         return atoi(&termo[1]); //converte string pra inteiro
     }
-    return 0; // x0 por padrão
+    return 0;
 }
 
 void ImprimirBinario(FILE *arq, int valor, int bits){
@@ -85,7 +85,7 @@ int ImediatoMemoria(char termo[]){
 }
 
 int RegMemoria(char termo[]) {
-    char *ptr = strchr(termo, 'x'); 
+    char *ptr = strchr(termo, 'x');  // cria um ponteiro apontando para o "x"
     if (ptr != NULL) {
         return atoi(ptr + 1);
     }

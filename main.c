@@ -7,7 +7,6 @@ int main(){
     char caminho_entrada[MAX_CAM];
     char caminho_saida[MAX_CAM];
 
-    // 1. Configuração de arquivos
     printf("Digite o caminho do arquivo de entrada: ");
     scanf("%255[^\n]", caminho_entrada);
 
@@ -20,21 +19,21 @@ int main(){
     printf("Escolha o destino da saida: \nTerminal (1)\nArquivo (2)\nOpcao: ");
     scanf("%d", &opcao);
 
-    FILE *arq_saida = stdout; // Padrão é o terminal
+    FILE *arq_saida = stdout; // a saída padrão é o terminal
 
-    fflush(stdin);
-    
+    fflush(stdin); // "limpa" o teclado pra conseguir digitar o caminho da saída
+
     if (opcao == 2) {
         printf("Digite o caminho do arquivo de saida: ");
         scanf("%255[^\n]", caminho_saida);
         arq_saida = fopen(caminho_saida, "w");
+
         if (arq_saida == NULL) {
             printf("Erro ao criar arquivo. Usando terminal por padrao.\n");
             arq_saida = stdout;
         }
     }
 
-    // 2. Loop de tradução
     char operacao[10], termo1[10], termo2[10], termo3[10];
     char linha[100];
 
@@ -43,7 +42,7 @@ int main(){
         int n = sscanf(linha, "%s %[^,], %[^,], %s", operacao, termo1, termo2, termo3);
         
         if (n < 4) {
-            sscanf(linha, "%s %[^,], %s", operacao, termo1, termo2);
+            sscanf(linha, "%s %[^,], %s", operacao, termo1, termo2); // para lb e sb
         }
 
         if (strcmp(operacao, "sub") == 0){
@@ -108,7 +107,7 @@ int main(){
         if (strcmp(operacao, "beq") == 0){
             int rs1 = NumeroRegistrador(termo1);
             int rs2 = NumeroRegistrador(termo2);
-            int imm = Imediato(termo3); // O valor do salto/label
+            int imm = Imediato(termo3);
 
             ImprimirBinario(arq_saida, (imm >> 12) & 0x01, 1);
             ImprimirBinario(arq_saida, (imm >> 5) & 0x3F, 6);
