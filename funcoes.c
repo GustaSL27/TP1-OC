@@ -118,7 +118,7 @@ int ImediatoMemoria(char termo[]){
 }
 
 int RegMemoria(char termo[]){
-    char *ptr = strchr(termo, 'x');  // cria um ponteiro apontando para o "x"
+    char *ptr = strchr(termo, 'x');  // acha o "x" e cria um ponteiro apontando para ele
     if (ptr != NULL) {
         return atoi(ptr + 1);
     }

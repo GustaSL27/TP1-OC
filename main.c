@@ -18,11 +18,6 @@ int main(){
         printf("Digite o caminho do arquivo de saida: ");
         scanf(" %255[^\n]", caminho_saida);
         arq_saida = fopen(caminho_saida, "w");
-
-        if (arq_saida == NULL) {
-            printf("Erro ao criar arquivo. Usando terminal por padrao.\n");
-            arq_saida = stdout;
-        }
     }
 
     printf("\nEscolha a ENTRADA: \nTerminal (1)\nArquivo (2)\nOpcao: ");
@@ -32,11 +27,6 @@ int main(){
         printf("Digite o caminho do arquivo de entrada: ");
         scanf(" %255[^\n]", caminho_entrada);
         arq_entrada = fopen(caminho_entrada, "r");
-
-        if (arq_entrada == NULL){
-            printf("Erro: Arquivo '%s' nao encontrado.\n", caminho_entrada);
-            return 1;
-        }
     }
 
     else{
