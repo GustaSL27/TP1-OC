@@ -1,3 +1,5 @@
+#ifndef FUNCOES_H
+#define FUNCOES_H
 #include "stdio.h"
 #include "string.h"
 
@@ -9,3 +11,5 @@ void ImprimirBinario(FILE *arq, int valor, int bits);
 int Imediato(char termo[]);
 int ImediatoMemoria(char termo[]);
 int RegMemoria(char termo[]);
+
+#endif
