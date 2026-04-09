@@ -1,4 +1,4 @@
-#include "funcoes.c"
+#include "funcoes.h"
 #define MAX_CAM 100
 
 int main(){
