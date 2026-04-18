@@ -43,9 +43,8 @@ int main(){
         }
         
         if (n < 4) {
-            sscanf(linha, "%s %[^,], %s", operacao, termo1, termo2); // lw, lb, sw, sb
+            sscanf(linha, "%s %[^,], %s", operacao, termo1, termo2); // lw, lb, sw, sb, li, mv
         }
-
         if (strcmp(operacao, "sub") == 0){
             ImprimirBinario(arq_saida, funct7("sub"), 7);
             ImprimirBinario(arq_saida, NumeroRegistrador(termo3), 5);
@@ -125,7 +124,23 @@ int main(){
             ImprimirBinario(arq_saida, opcode("addi"), 7);
             fprintf(arq_saida, "\n");
         }
-        if (strcmp(operacao, "andi") == 0){
+        if (strcmp(operacao, "li") == 0){
+            ImprimirBinario(arq_saida, Imediato(termo3), 12);
+            fprintf(arq_saida, "00000");
+            ImprimirBinario(arq_saida, funct3("addi"), 3);
+            ImprimirBinario(arq_saida, NumeroRegistrador(termo1), 5);
+            ImprimirBinario(arq_saida, opcode("addi"), 7);
+            fprintf(arq_saida, "\n");
+        }
+        if (strcmp(operacao, "mv") == 0){
+            fprintf(arq_saida, "00000");
+            ImprimirBinario(arq_saida, NumeroRegistrador(termo2), 5);
+            ImprimirBinario(arq_saida, funct3("addi"), 3);
+            ImprimirBinario(arq_saida, NumeroRegistrador(termo1), 5);
+            ImprimirBinario(arq_saida, opcode("addi"), 7);
+            fprintf(arq_saida, "\n");
+        }
+        if (strcmp(operacao, "andi") == 0 || strcmp(operacao, "and") == 0){
             ImprimirBinario(arq_saida, Imediato(termo3), 12);
             ImprimirBinario(arq_saida, NumeroRegistrador(termo2), 5);
             ImprimirBinario(arq_saida, funct3("andi"), 3);
