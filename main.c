@@ -133,7 +133,7 @@ int main(){
             fprintf(arq_saida, "\n");
         }
         if (strcmp(operacao, "mv") == 0){
-            fprintf(arq_saida, "00000");
+            fprintf(arq_saida, "000000000000");
             ImprimirBinario(arq_saida, NumeroRegistrador(termo2), 5);
             ImprimirBinario(arq_saida, funct3("addi"), 3);
             ImprimirBinario(arq_saida, NumeroRegistrador(termo1), 5);
