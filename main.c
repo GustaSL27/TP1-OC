@@ -140,7 +140,7 @@ int main(){
             ImprimirBinario(arq_saida, opcode("addi"), 7);
             fprintf(arq_saida, "\n");
         }
-        if (strcmp(operacao, "andi") == 0 || strcmp(operacao, "and") == 0){
+        if (strcmp(operacao, "andi") == 0){
             ImprimirBinario(arq_saida, Imediato(termo3), 12);
             ImprimirBinario(arq_saida, NumeroRegistrador(termo2), 5);
             ImprimirBinario(arq_saida, funct3("andi"), 3);
