@@ -1,18 +1,26 @@
 # Nome do executável
-TARGET = montador.exe
+TARGET = montador
+
+# Arquivos fonte
+SRC = main.c funcoes.c
+
+# Compilador
+CC = gcc
+
+# Flags de compilação
+CFLAGS = -Wall
 
 # Regra padrão
 all: $(TARGET)
 
 # Compilação
-$(TARGET): main.c
-	gcc -Wall main.c -o $(TARGET) -lm
+$(TARGET): $(SRC)
+	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
 
-# Regra para rodar (No Windows usamos .\ e o nome do arquivo)
+# Executar o programa
 run: $(TARGET)
-	.\$(TARGET) entrada.asm
+	./$(TARGET)
 
-# Limpeza (Comandos do Windows: del /f /q)
+# Limpar arquivos gerados
 clean:
-	if exist $(TARGET) del /f /q $(TARGET)
-	if exist *.o del /f /q *.o
+	rm -f $(TARGET) *.o
