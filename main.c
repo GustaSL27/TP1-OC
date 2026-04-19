@@ -42,7 +42,7 @@ int main(){
         }
 
         int n = sscanf(linha, "%s %[^,], %[^,], %s", operacao, termo1, termo2, termo3); // n é a quantidade de itens armazenados
-        if(n < 1){
+        if(n < 1 || operacao[0] == '\0'){
             continue; // pula linha vazia
         }
         
