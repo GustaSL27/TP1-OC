@@ -35,14 +35,14 @@ int main(){
 
     while(fgets(linha, sizeof(linha), arq_entrada)){
 
-        operacao[0] = '\0'; //começa o while "zerando" a operação (tava dando repetição)
+        strcpy(operacao, ""); //começa o while "zerando" a operação (tava dando repetição)
 
         if(strncmp(linha, "sair", 4) == 0){
             break; // compara as primeiras 4 letras da linha e de "sair", se igual da break
         }
 
         int n = sscanf(linha, "%s %[^,], %[^,], %s", operacao, termo1, termo2, termo3); // n é a quantidade de itens armazenados
-        if(n < 1 || operacao[0] == '\0'){
+        if(n < 1 || strlen(operacao) == 0){
             continue; // pula linha vazia
         }
         
