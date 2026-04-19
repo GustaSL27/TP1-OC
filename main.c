@@ -125,7 +125,7 @@ int main(){
             fprintf(arq_saida, "\n");
         }
         if (strcmp(operacao, "li") == 0){
-            ImprimirBinario(arq_saida, Imediato(termo3), 12);
+            ImprimirBinario(arq_saida, Imediato(termo2), 12);
             fprintf(arq_saida, "00000");
             ImprimirBinario(arq_saida, funct3("addi"), 3);
             ImprimirBinario(arq_saida, NumeroRegistrador(termo1), 5);
@@ -141,6 +141,14 @@ int main(){
             fprintf(arq_saida, "\n");
         }
         if (strcmp(operacao, "andi") == 0 || strcmp(operacao, "and") == 0){
+            ImprimirBinario(arq_saida, Imediato(termo3), 12);
+            ImprimirBinario(arq_saida, NumeroRegistrador(termo2), 5);
+            ImprimirBinario(arq_saida, funct3("andi"), 3);
+            ImprimirBinario(arq_saida, NumeroRegistrador(termo1), 5);
+            ImprimirBinario(arq_saida, opcode("andi"), 7);
+            fprintf(arq_saida, "\n");
+        }
+        if (strcmp(operacao, "and") == 0){
             ImprimirBinario(arq_saida, Imediato(termo3), 12);
             ImprimirBinario(arq_saida, NumeroRegistrador(termo2), 5);
             ImprimirBinario(arq_saida, funct3("andi"), 3);
