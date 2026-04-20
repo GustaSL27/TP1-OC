@@ -1,9 +1,0 @@
-all: compile-run
-
-compile-run: main.c funcoes.c
-	gcc main.c funcoes.c -o assembler
-	./assembler entrada.asm -o saida.bin
-
-
-clean:
-	rm -f run *.o
